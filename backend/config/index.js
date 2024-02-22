@@ -9,12 +9,3 @@ module.exports = {
     expiresIn: process.env.JWT_EXPIRES_IN,
   },
 };
-
-// Add a XSRF-TOKEN cookie
-router.get("/api/csrf/restore", (req, res) => {
-  const csrfToken = req.csrfToken();
-  res.cookie("XSRF-TOKEN", csrfToken);
-  res.status(200).json({
-    "XSRF-Token": csrfToken,
-  });
-});
